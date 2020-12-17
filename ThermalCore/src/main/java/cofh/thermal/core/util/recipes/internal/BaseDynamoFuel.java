@@ -13,15 +13,17 @@ public class BaseDynamoFuel implements IDynamoFuel {
     protected final List<FluidStack> inputFluids = new ArrayList<>();
 
     protected final int energy;
+    protected final int power;
 
-    public BaseDynamoFuel(int energy) {
+    public BaseDynamoFuel(int energy, int power) {
 
         this.energy = energy;
+        this.power = power;
     }
 
-    public BaseDynamoFuel(int energy, @Nullable List<ItemStack> inputItems, @Nullable List<FluidStack> inputFluids) {
+    public BaseDynamoFuel(int energy, int power, @Nullable List<ItemStack> inputItems, @Nullable List<FluidStack> inputFluids) {
 
-        this(energy);
+        this(energy, power);
 
         if (inputItems != null) {
             this.inputItems.addAll(inputItems);
@@ -55,6 +57,12 @@ public class BaseDynamoFuel implements IDynamoFuel {
     public int getEnergy() {
 
         return energy;
+    }
+
+    @Override
+    public int getPower() {
+
+        return power;
     }
     // endregion
 }

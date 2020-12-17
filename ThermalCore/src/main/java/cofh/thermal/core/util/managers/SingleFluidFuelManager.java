@@ -36,7 +36,7 @@ public abstract class SingleFluidFuelManager extends AbstractManager implements 
 
     public void addFuel(ThermalFuel recipe) {
 
-        addFuel(recipe.getEnergy(), Collections.emptyList(), recipe.getInputFluids());
+        addFuel(recipe.getEnergy(), recipe.getPower(), Collections.emptyList(), recipe.getInputFluids());
     }
 
     public boolean validFuel(FluidStack input) {
@@ -62,7 +62,7 @@ public abstract class SingleFluidFuelManager extends AbstractManager implements 
         return fuelMap.get(FluidHelper.fluidHashcode(inputTanks.get(0).getFluidStack()));
     }
 
-    public IDynamoFuel addFuel(int energy, List<ItemStack> inputItems, List<FluidStack> inputFluids) {
+    public IDynamoFuel addFuel(int energy, int power, List<ItemStack> inputItems, List<FluidStack> inputFluids) {
 
         if (inputFluids.isEmpty() || energy <= 0) {
             return null;
@@ -85,7 +85,7 @@ public abstract class SingleFluidFuelManager extends AbstractManager implements 
         }
         energy = (int) (energy * getDefaultScale());
 
-        BaseDynamoFuel fuel = new BaseDynamoFuel(energy, inputItems, inputFluids);
+        BaseDynamoFuel fuel = new BaseDynamoFuel(energy, power, inputItems, inputFluids);
         fuelMap.put(FluidHelper.fluidHashcode(input), fuel);
         return fuel;
     }

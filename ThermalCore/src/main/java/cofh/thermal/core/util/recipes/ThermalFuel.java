@@ -14,8 +14,9 @@ public abstract class ThermalFuel extends SerializableRecipe {
     protected final List<FluidStack> inputFluids = new ArrayList<>();
 
     protected int energy;
+    protected int power;
 
-    protected ThermalFuel(ResourceLocation recipeId, int energy, List<Ingredient> inputItems, List<FluidStack> inputFluids) {
+    protected ThermalFuel(ResourceLocation recipeId, int energy, int power, List<Ingredient> inputItems, List<FluidStack> inputFluids) {
 
         super(recipeId);
 
@@ -50,6 +51,11 @@ public abstract class ThermalFuel extends SerializableRecipe {
     public int getEnergy() {
 
         return energy;
+    }
+
+    public int getPower() {
+
+        return power;
     }
     // endregion
 }

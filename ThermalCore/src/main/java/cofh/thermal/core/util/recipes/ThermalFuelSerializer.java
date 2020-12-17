@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static cofh.core.util.RecipeJsonUtils.*;
+import static cofh.core.util.constants.Constants.MAX_POWER;
 
 public class ThermalFuelSerializer<T extends ThermalFuel> extends ForgeRegistryEntry<IRecipeSerializer<?>> implements IRecipeSerializer<T> {
 
@@ -29,6 +30,7 @@ public class ThermalFuelSerializer<T extends ThermalFuel> extends ForgeRegistryE
     public T read(ResourceLocation recipeId, JsonObject json) {
 
         int energy = defaultEnergy;
+        int power = MAX_POWER;
 
         ArrayList<Ingredient> inputItems = new ArrayList<>();
         ArrayList<FluidStack> inputFluids = new ArrayList<>();
@@ -51,7 +53,11 @@ public class ThermalFuelSerializer<T extends ThermalFuel> extends ForgeRegistryE
         if (json.has(ENERGY_MOD)) {
             energy *= json.get(ENERGY_MOD).getAsFloat();
         }
-        return factory.create(recipeId, energy, inputItems, inputFluids);
+        /* POWER */
+        if (json.has(POWER)) {
+            power = json.get(POWER).getAsInt();
+        }
+        return factory.create(recipeId, energy, power, inputItems, inputFluids);
     }
 
     @Nullable
@@ -59,6 +65,7 @@ public class ThermalFuelSerializer<T extends ThermalFuel> extends ForgeRegistryE
     public T read(ResourceLocation recipeId, PacketBuffer buffer) {
 
         int energy = buffer.readVarInt();
+        int power = buffer.readVarInt();
 
         int numInputItems = buffer.readVarInt();
         ArrayList<Ingredient> inputItems = new ArrayList<>(numInputItems);
@@ -71,7 +78,7 @@ public class ThermalFuelSerializer<T extends ThermalFuel> extends ForgeRegistryE
         for (int i = 0; i < numInputFluids; ++i) {
             inputFluids.add(buffer.readFluidStack());
         }
-        return factory.create(recipeId, energy, inputItems, inputFluids);
+        return factory.create(recipeId, energy, power, inputItems, inputFluids);
     }
 
     @Override
@@ -93,7 +100,7 @@ public class ThermalFuelSerializer<T extends ThermalFuel> extends ForgeRegistryE
 
     public interface IFactory<T extends ThermalFuel> {
 
-        T create(ResourceLocation recipeId, int energy, List<Ingredient> inputItems, List<FluidStack> inputFluids);
+        T create(ResourceLocation recipeId, int energy, int power, List<Ingredient> inputItems, List<FluidStack> inputFluids);
 
     }
 

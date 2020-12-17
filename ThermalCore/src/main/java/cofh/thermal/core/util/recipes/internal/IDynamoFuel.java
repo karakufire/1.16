@@ -13,4 +13,6 @@ public interface IDynamoFuel {
 
     int getEnergy();
 
+    int getPower();
+
 }

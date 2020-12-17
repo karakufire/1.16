@@ -20,8 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static cofh.core.util.constants.Constants.ID_THERMAL;
-import static cofh.core.util.constants.Constants.RF_PER_FURNACE_UNIT;
+import static cofh.core.util.constants.Constants.*;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 
@@ -106,14 +105,14 @@ public class StirlingFuelManager extends SingleItemFuelManager {
         for (Item item : ForgeRegistries.ITEMS) {
             query = new ItemStack(item);
             if (getFuel(query) == null && validFuel(query)) {
-                convertedFuels.add(convert(query, getEnergy(query)));
+                convertedFuels.add(convert(query, getEnergy(query), MAX_POWER));
             }
         }
     }
 
-    protected StirlingFuel convert(ItemStack item, int energy) {
+    protected StirlingFuel convert(ItemStack item, int energy, int power) {
 
-        return new StirlingFuel(new ResourceLocation(ID_THERMAL, "stirling_" + item.getItem().getRegistryName().getPath()), energy, singletonList(Ingredient.fromStacks(item)), emptyList());
+        return new StirlingFuel(new ResourceLocation(ID_THERMAL, "stirling_" + item.getItem().getRegistryName().getPath()), energy, power, singletonList(Ingredient.fromStacks(item)), emptyList());
     }
     // endregion
 }

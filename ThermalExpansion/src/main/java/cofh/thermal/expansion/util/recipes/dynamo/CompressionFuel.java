@@ -12,6 +12,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
+import static cofh.core.util.constants.Constants.MAX_POWER;
 import static cofh.thermal.core.ThermalCore.RECIPE_SERIALIZERS;
 import static cofh.thermal.expansion.init.TExpRecipeTypes.ID_FUEL_COMPRESSION;
 
@@ -19,7 +20,12 @@ public class CompressionFuel extends ThermalFuel {
 
     public CompressionFuel(ResourceLocation recipeId, int energy, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids) {
 
-        super(recipeId, energy, inputItems, inputFluids);
+        this(recipeId, energy, MAX_POWER, inputItems, inputFluids);
+    }
+
+    public CompressionFuel(ResourceLocation recipeId, int energy, int power, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids) {
+
+        super(recipeId, energy, power, inputItems, inputFluids);
     }
 
     @Nonnull
