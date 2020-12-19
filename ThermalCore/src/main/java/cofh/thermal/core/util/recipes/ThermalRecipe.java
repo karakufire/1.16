@@ -6,6 +6,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,16 +23,21 @@ public abstract class ThermalRecipe extends SerializableRecipe {
 
     protected int energy;
     protected float experience;
-    protected int minTicks;
+
+    protected int minPower;
+    protected int maxPower;
+
     protected boolean catalyzable;
 
-    protected ThermalRecipe(ResourceLocation recipeId, int energy, float experience, int minTicks, List<Ingredient> inputItems, List<FluidStack> inputFluids, List<ItemStack> outputItems, List<Float> outputItemChances, List<FluidStack> outputFluids) {
+    protected ThermalRecipe(ResourceLocation recipeId, int energy, float experience, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids) {
 
         super(recipeId);
 
         this.energy = energy;
         this.experience = Math.max(0.0F, experience);
-        this.minTicks = minTicks;
+
+        this.minPower = minPower;
+        this.maxPower = maxPower;
 
         if (inputItems != null) {
             this.inputItems.addAll(inputItems);
@@ -106,9 +112,14 @@ public abstract class ThermalRecipe extends SerializableRecipe {
         return experience;
     }
 
-    public int getMinTicks() {
+    public int getMinPower() {
 
-        return minTicks;
+        return minPower;
+    }
+
+    public int getMaxPower() {
+
+        return maxPower;
     }
 
     public boolean isCatalyzable() {

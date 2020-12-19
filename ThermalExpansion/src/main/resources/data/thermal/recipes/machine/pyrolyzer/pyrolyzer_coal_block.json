@@ -13,6 +13,6 @@
     }
   ],
   "energy": 18000,
-  "min_ticks": 1800,
+  "max_power": 5,
   "experience": 0.15
 }

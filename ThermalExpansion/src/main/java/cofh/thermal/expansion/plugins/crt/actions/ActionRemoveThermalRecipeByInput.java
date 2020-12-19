@@ -15,26 +15,26 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Map;
 
-public class ActionRemoveThermalRecipeByOutput extends ActionRecipeBase {
+public class ActionRemoveThermalRecipeByInput extends ActionRecipeBase {
 
     private final IIngredient[] outputs;
     private final IFluidStack[] fluids;
 
-    public ActionRemoveThermalRecipeByOutput(IRecipeManager manager, IIngredient[] outputs) {
+    public ActionRemoveThermalRecipeByInput(IRecipeManager manager, IIngredient[] outputs) {
 
         super(manager);
         this.outputs = outputs;
         this.fluids = new IFluidStack[0];
     }
 
-    public ActionRemoveThermalRecipeByOutput(IRecipeManager manager, IFluidStack[] fluids) {
+    public ActionRemoveThermalRecipeByInput(IRecipeManager manager, IFluidStack[] fluids) {
 
         super(manager);
         this.outputs = new IIngredient[0];
         this.fluids = fluids;
     }
 
-    public ActionRemoveThermalRecipeByOutput(IRecipeManager manager, IIngredient[] outputs, IFluidStack[] fluids) {
+    public ActionRemoveThermalRecipeByInput(IRecipeManager manager, IIngredient[] outputs, IFluidStack[] fluids) {
 
         super(manager);
         this.outputs = outputs;

@@ -1,7 +1,7 @@
 package cofh.thermal.expansion.plugins.crt.machine;
 
 import cofh.thermal.expansion.init.TExpRecipeTypes;
-import cofh.thermal.expansion.plugins.crt.actions.ActionRemoveThermalCatalystByOutput;
+import cofh.thermal.expansion.plugins.crt.actions.ActionRemoveThermalCatalystByInput;
 import cofh.thermal.expansion.plugins.crt.base.CRTCatalyst;
 import cofh.thermal.expansion.util.recipes.machine.PulverizerCatalyst;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
@@ -37,7 +37,7 @@ public class CRTPulverizerCatalystManager implements IRecipeManager {
     @ZenCodeType.Method
     public void removeCatalyst(IItemStack input) {
 
-        CraftTweakerAPI.apply(new ActionRemoveThermalCatalystByOutput(this, input));
+        CraftTweakerAPI.apply(new ActionRemoveThermalCatalystByInput(this, input));
     }
 
     @Override

@@ -14,12 +14,16 @@ public abstract class ThermalFuel extends SerializableRecipe {
     protected final List<FluidStack> inputFluids = new ArrayList<>();
 
     protected int energy;
+    protected int minPower;
+    protected int maxPower;
 
-    protected ThermalFuel(ResourceLocation recipeId, int energy, List<Ingredient> inputItems, List<FluidStack> inputFluids) {
+    protected ThermalFuel(ResourceLocation recipeId, int energy, int minPower, int maxPower, List<Ingredient> inputItems, List<FluidStack> inputFluids) {
 
         super(recipeId);
 
         this.energy = energy;
+        this.minPower = minPower;
+        this.maxPower = maxPower;
 
         if (inputItems != null) {
             this.inputItems.addAll(inputItems);
@@ -48,6 +52,16 @@ public abstract class ThermalFuel extends SerializableRecipe {
     }
 
     public int getEnergy() {
+
+        return energy;
+    }
+
+    public int getMinPower() {
+
+        return energy;
+    }
+
+    public int getMaxPower() {
 
         return energy;
     }

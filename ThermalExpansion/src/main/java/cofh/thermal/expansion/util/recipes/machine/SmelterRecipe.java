@@ -10,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 
 import static cofh.thermal.core.ThermalCore.RECIPE_SERIALIZERS;
@@ -17,9 +18,9 @@ import static cofh.thermal.expansion.init.TExpRecipeTypes.ID_RECIPE_SMELTER;
 
 public class SmelterRecipe extends ThermalRecipe {
 
-    public SmelterRecipe(ResourceLocation recipeId, int energy, float experience, int minTicks, List<Ingredient> inputItems, List<FluidStack> inputFluids, List<ItemStack> outputItems, List<Float> outputItemChances, List<FluidStack> outputFluids) {
+    public SmelterRecipe(ResourceLocation recipeId, int energy, float experience, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids) {
 
-        super(recipeId, energy, experience, minTicks, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        super(recipeId, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
     @Nonnull

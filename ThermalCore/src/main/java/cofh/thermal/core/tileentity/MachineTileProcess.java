@@ -88,6 +88,9 @@ public abstract class MachineTileProcess extends ReconfigurableTile4Way implemen
         if (!validateInputs()) {
             return false;
         }
+        if (curRecipe.getMinPower() > 0 && baseProcessTick < curRecipe.getMinPower()) {
+            return false;
+        }
         return validateOutputs();
     }
 
@@ -101,14 +104,11 @@ public abstract class MachineTileProcess extends ReconfigurableTile4Way implemen
         processTick = baseProcessTick;
         int energy = curRecipe.getEnergy(this);
 
-        int minTicks = curRecipe.getMinTicks();
-        if (minTicks > 0) {
-            processTick = Math.min(processTick, Math.max(getMinProcessTick(), energy / minTicks));
-            energy = Math.max(energy, getMinProcessTick() * minTicks);
-            energyStorage.modify(-process);     // Refund extra energy to ensure minTick
-        } else {
-            energy += process;                  // Apply extra energy to next process
+        if (curRecipe.getMaxPower() > 0) {
+            processTick = Math.min(processTick, curRecipe.getMaxPower());
         }
+        energy += process;                  // Apply extra energy to next process
+
         process = processMax = energy;
         if (cacheRenderFluid()) {
             TileStatePacket.sendToClient(this);
@@ -470,10 +470,12 @@ public abstract class MachineTileProcess extends ReconfigurableTile4Way implemen
 
         processTick = baseProcessTick;
         if (curRecipe != null) {
-            int minTicks = curRecipe.getMinTicks();
-            if (minTicks > 0) {
-                int energy = curRecipe.getEnergy(this);
-                processTick = Math.min(processTick, Math.max(getMinProcessTick(), energy / minTicks));
+            if (curRecipe.getMinPower() > 0 && baseProcessTick < curRecipe.getMinPower()) {
+                processOff();
+                return;
+            }
+            if (curRecipe.getMaxPower() > 0) {
+                processTick = Math.min(processTick, curRecipe.getMaxPower());
             }
         }
     }

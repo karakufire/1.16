@@ -62,7 +62,6 @@ import static net.minecraftforge.common.util.Constants.NBT.TAG_COMPOUND;
 
 public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile, IRedstoneControllableTile, INamedContainerProvider, IThermalInventory {
 
-    protected static final int MIN_PROCESS_TICK = 5;
     protected static final int BASE_PROCESS_TICK = 20;
     protected static final int BASE_ENERGY = 50000;
 
@@ -102,11 +101,6 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
     protected int getBaseProcessTick() {
 
         return BASE_PROCESS_TICK;
-    }
-
-    protected int getMinProcessTick() {
-
-        return MIN_PROCESS_TICK;
     }
     // endregion
 

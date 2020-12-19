@@ -113,7 +113,7 @@ public class StirlingFuelManager extends SingleItemFuelManager {
 
     protected StirlingFuel convert(ItemStack item, int energy) {
 
-        return new StirlingFuel(new ResourceLocation(ID_THERMAL, "stirling_" + item.getItem().getRegistryName().getPath()), energy, singletonList(Ingredient.fromStacks(item)), emptyList());
+        return new StirlingFuel(new ResourceLocation(ID_THERMAL, "stirling_" + item.getItem().getRegistryName().getPath()), energy, -1, energy, singletonList(Ingredient.fromStacks(item)), emptyList());
     }
     // endregion
 }

@@ -17,9 +17,9 @@ import static cofh.thermal.expansion.init.TExpRecipeTypes.ID_FUEL_COMPRESSION;
 
 public class CompressionFuel extends ThermalFuel {
 
-    public CompressionFuel(ResourceLocation recipeId, int energy, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids) {
+    public CompressionFuel(ResourceLocation recipeId, int energy, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids) {
 
-        super(recipeId, energy, inputItems, inputFluids);
+        super(recipeId, energy, minPower, maxPower, inputItems, inputFluids);
     }
 
     @Nonnull

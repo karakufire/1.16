@@ -12,6 +12,6 @@
       "amount": 125
     }
   ],
-  "min_ticks": 200,
+  "max_power": 5,
   "experience": 0.15
 }

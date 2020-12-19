@@ -12,11 +12,11 @@ import net.minecraft.util.registry.Registry;
 import java.util.Iterator;
 import java.util.Map;
 
-public class ActionRemoveThermalCatalystByOutput extends ActionRecipeBase {
+public class ActionRemoveThermalCatalystByInput extends ActionRecipeBase {
 
     private final IItemStack input;
 
-    public ActionRemoveThermalCatalystByOutput(IRecipeManager manager, IItemStack input) {
+    public ActionRemoveThermalCatalystByInput(IRecipeManager manager, IItemStack input) {
 
         super(manager);
         this.input = input;

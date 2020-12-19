@@ -29,7 +29,8 @@ public class InsolatorRecipeSerializer<T extends ThermalRecipe> extends ThermalR
         int energy = defaultEnergy;
         int water = defaultWater;
         float experience = 0.0F;
-        int minTicks = -1;
+        int minPower = -1;
+        int maxPower = -1;
 
         ArrayList<Ingredient> inputItems = new ArrayList<>();
         ArrayList<FluidStack> inputFluids = new ArrayList<>();
@@ -80,11 +81,15 @@ public class InsolatorRecipeSerializer<T extends ThermalRecipe> extends ThermalR
         if (inputFluids.isEmpty()) {
             inputFluids.add(new FluidStack(Fluids.WATER, water));
         }
-        /* MIN TICKS */
-        if (json.has(MIN_TICKS)) {
-            minTicks = json.get(MIN_TICKS).getAsInt();
+        /* MIN POWER */
+        if (json.has(MIN_POWER)) {
+            minPower = json.get(MIN_POWER).getAsInt();
         }
-        return factory.create(recipeId, energy, experience, minTicks, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        /* MAX POWER */
+        if (json.has(MAX_POWER)) {
+            maxPower = json.get(MAX_POWER).getAsInt();
+        }
+        return factory.create(recipeId, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
 }

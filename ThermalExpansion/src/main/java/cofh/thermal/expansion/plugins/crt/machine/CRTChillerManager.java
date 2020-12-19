@@ -1,7 +1,7 @@
 package cofh.thermal.expansion.plugins.crt.machine;
 
 import cofh.thermal.expansion.init.TExpRecipeTypes;
-import cofh.thermal.expansion.plugins.crt.actions.ActionRemoveThermalRecipeByOutput;
+import cofh.thermal.expansion.plugins.crt.actions.ActionRemoveThermalRecipeByInput;
 import cofh.thermal.expansion.plugins.crt.base.CRTRecipe;
 import cofh.thermal.expansion.util.recipes.machine.ChillerRecipe;
 import com.blamejared.crafttweaker.api.CraftTweakerAPI;
@@ -44,7 +44,7 @@ public class CRTChillerManager implements IRecipeManager {
     @ZenCodeType.Method
     public void removeRecipe(IItemStack... output) {
 
-        CraftTweakerAPI.apply(new ActionRemoveThermalRecipeByOutput(this, output));
+        CraftTweakerAPI.apply(new ActionRemoveThermalRecipeByInput(this, output));
     }
 
 }

@@ -26,18 +26,21 @@ public class BaseMachineRecipe implements IMachineRecipe {
 
     protected final int energy;
     protected final float experience;
-    protected final int minTicks;
 
-    public BaseMachineRecipe(int energy, float experience, int minTicks) {
+    protected final int minPower;
+    protected final int maxPower;
+
+    public BaseMachineRecipe(int energy, float experience, int minPower, int maxPower) {
 
         this.energy = energy;
         this.experience = Math.max(0.0F, experience);
-        this.minTicks = minTicks;
+        this.minPower = minPower;
+        this.maxPower = maxPower <= 0 ? energy : maxPower;
     }
 
-    public BaseMachineRecipe(int energy, float experience, int minTicks, @Nullable List<ItemStack> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> chance, @Nullable List<FluidStack> outputFluids) {
+    public BaseMachineRecipe(int energy, float experience, int minPower, int maxPower, @Nullable List<ItemStack> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> chance, @Nullable List<FluidStack> outputFluids) {
 
-        this(energy, experience, minTicks);
+        this(energy, experience, minPower, maxPower);
 
         if (inputItems != null) {
             this.inputItems.addAll(inputItems);
@@ -185,9 +188,15 @@ public class BaseMachineRecipe implements IMachineRecipe {
     }
 
     @Override
-    public int getMinTicks() {
+    public int getMinPower() {
 
-        return minTicks;
+        return minPower;
+    }
+
+    @Override
+    public int getMaxPower() {
+
+        return maxPower;
     }
     // endregion
 }

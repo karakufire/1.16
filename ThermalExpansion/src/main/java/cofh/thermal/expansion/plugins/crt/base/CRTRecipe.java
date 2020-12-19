@@ -10,6 +10,7 @@ import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.FluidStack;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +28,8 @@ public class CRTRecipe {
 
     private int energy = 0;
     private float experience = 0;
-    private int minTicks = -1;
+    private int minPower = -1;
+    private int maxPower = -1;
 
     public CRTRecipe(ResourceLocation name) {
 
@@ -103,20 +105,26 @@ public class CRTRecipe {
         return this;
     }
 
-    public CRTRecipe minTicks(int minTicks) {
+    public CRTRecipe minPower(int minPower) {
 
-        this.minTicks = minTicks;
+        this.minPower = minPower;
+        return this;
+    }
+
+    public CRTRecipe maxPower(int maxPower) {
+
+        this.maxPower = maxPower;
         return this;
     }
 
     public <T extends ThermalRecipe> T recipe(IRecipeBuilder<T> builder) {
 
-        return builder.apply(name, energy, experience, minTicks, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        return builder.apply(name, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
     public interface IRecipeBuilder<T extends ThermalRecipe> {
 
-        T apply(ResourceLocation recipeId, int energy, float experience, int minTicks, List<Ingredient> inputItems, List<FluidStack> inputFluids, List<ItemStack> outputItems, List<Float> outputItemChances, List<FluidStack> outputFluids);
+        T apply(ResourceLocation recipeId, int energy, float experience, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids);
 
     }
 
