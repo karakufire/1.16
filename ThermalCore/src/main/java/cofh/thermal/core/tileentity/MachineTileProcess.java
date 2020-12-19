@@ -88,9 +88,6 @@ public abstract class MachineTileProcess extends ReconfigurableTile4Way implemen
         if (!validateInputs()) {
             return false;
         }
-        if (curRecipe.getMinPower() > 0 && baseProcessTick < curRecipe.getMinPower()) {
-            return false;
-        }
         return validateOutputs();
     }
 
@@ -470,10 +467,6 @@ public abstract class MachineTileProcess extends ReconfigurableTile4Way implemen
 
         processTick = baseProcessTick;
         if (curRecipe != null) {
-            if (curRecipe.getMinPower() > 0 && baseProcessTick < curRecipe.getMinPower()) {
-                processOff();
-                return;
-            }
             if (curRecipe.getMaxPower() > 0) {
                 processTick = Math.min(processTick, curRecipe.getMaxPower());
             }

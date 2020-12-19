@@ -68,10 +68,10 @@ public class BottlerRecipeManager extends AbstractManager implements IRecipeMana
 
         if (!recipe.getInputItems().isEmpty()) {
             for (ItemStack recipeInput : recipe.getInputItems().get(0).getMatchingStacks()) {
-                addRecipe(recipe.getEnergy(), recipe.getExperience(), recipe.getMinPower(), recipe.getMaxPower(), singletonList(recipeInput), recipe.getInputFluids(), recipe.getOutputItems(), recipe.getOutputItemChances(), recipe.getOutputFluids());
+                addRecipe(recipe.getEnergy(), recipe.getExperience(), recipe.getMaxPower(), singletonList(recipeInput), recipe.getInputFluids(), recipe.getOutputItems(), recipe.getOutputItemChances(), recipe.getOutputFluids());
             }
         } else {
-            addRecipe(recipe.getEnergy(), recipe.getExperience(), recipe.getMinPower(), recipe.getMaxPower(), Collections.emptyList(), recipe.getInputFluids(), recipe.getOutputItems(), recipe.getOutputItemChances(), recipe.getOutputFluids());
+            addRecipe(recipe.getEnergy(), recipe.getExperience(), recipe.getMaxPower(), Collections.emptyList(), recipe.getInputFluids(), recipe.getOutputItems(), recipe.getOutputItemChances(), recipe.getOutputFluids());
         }
     }
 
@@ -112,7 +112,7 @@ public class BottlerRecipeManager extends AbstractManager implements IRecipeMana
         return recipeMap.get(asList(convert(inputItem).hashCode(), FluidHelper.fluidHashcodeNoTag(inputFluid)));
     }
 
-    protected IMachineRecipe addRecipe(int energy, float experience, int minPower, int maxPower, List<ItemStack> inputItems, List<FluidStack> inputFluids, List<ItemStack> outputItems, List<Float> chance, List<FluidStack> outputFluids) {
+    protected IMachineRecipe addRecipe(int energy, float experience, int maxPower, List<ItemStack> inputItems, List<FluidStack> inputFluids, List<ItemStack> outputItems, List<Float> chance, List<FluidStack> outputFluids) {
 
         if (inputItems.isEmpty() || inputFluids.isEmpty() || outputItems.size() > maxOutputItems || outputFluids.size() > maxOutputFluids || energy <= 0) {
             return null;
@@ -134,7 +134,7 @@ public class BottlerRecipeManager extends AbstractManager implements IRecipeMana
         validFluids.add(inputFluid.getFluid());
         energy = (int) (energy * getDefaultScale());
 
-        SimpleMachineRecipe recipe = new SimpleMachineRecipe(energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, chance, outputFluids);
+        SimpleMachineRecipe recipe = new SimpleMachineRecipe(energy, experience, maxPower, inputItems, inputFluids, outputItems, chance, outputFluids);
         recipeMap.put(asList(convert(inputItem).hashCode(), FluidHelper.fluidHashcodeNoTag(inputFluid)), recipe);
         return recipe;
     }
@@ -220,8 +220,8 @@ public class BottlerRecipeManager extends AbstractManager implements IRecipeMana
 
     protected BottlerRecipeNBT convert(int energy, float experience, @Nonnull ItemStack inputItem, @Nonnull FluidStack inputFluid, @Nonnull ItemStack outputItem) {
 
-        convertedRecipes.add(new BottlerRecipe(new ResourceLocation(ID_THERMAL, "bottler_" + inputItem.getItem().getRegistryName().getPath()), energy, experience, -1, -1, singletonList(Ingredient.fromStacks(inputItem)), singletonList(inputFluid), singletonList(outputItem), emptyList(), emptyList()));
-        return new BottlerRecipeNBT(energy, experience, -1, -1, inputItem, inputFluid, outputItem);
+        convertedRecipes.add(new BottlerRecipe(new ResourceLocation(ID_THERMAL, "bottler_" + inputItem.getItem().getRegistryName().getPath()), energy, experience, -1, singletonList(Ingredient.fromStacks(inputItem)), singletonList(inputFluid), singletonList(outputItem), emptyList(), emptyList()));
+        return new BottlerRecipeNBT(energy, experience, -1, inputItem, inputFluid, outputItem);
     }
     // endregion
 }

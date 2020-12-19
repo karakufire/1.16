@@ -31,7 +31,6 @@ public class ThermalRecipeSerializer<T extends ThermalRecipe> extends ForgeRegis
 
         int energy = defaultEnergy;
         float experience = 0.0F;
-        int minPower = -1;
         int maxPower = -1;
 
         ArrayList<Ingredient> inputItems = new ArrayList<>();
@@ -73,15 +72,11 @@ public class ThermalRecipeSerializer<T extends ThermalRecipe> extends ForgeRegis
         if (json.has(EXPERIENCE)) {
             experience = json.get(EXPERIENCE).getAsFloat();
         }
-        /* MIN POWER */
-        if (json.has(MIN_POWER)) {
-            minPower = json.get(MIN_POWER).getAsInt();
-        }
         /* MAX POWER */
         if (json.has(MAX_POWER)) {
             maxPower = json.get(MAX_POWER).getAsInt();
         }
-        return factory.create(recipeId, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        return factory.create(recipeId, energy, experience, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
     @Nullable
@@ -90,7 +85,6 @@ public class ThermalRecipeSerializer<T extends ThermalRecipe> extends ForgeRegis
 
         int energy = buffer.readVarInt();
         float experience = buffer.readFloat();
-        int minPower = buffer.readVarInt();
         int maxPower = buffer.readVarInt();
 
         int numInputItems = buffer.readVarInt();
@@ -118,7 +112,7 @@ public class ThermalRecipeSerializer<T extends ThermalRecipe> extends ForgeRegis
         for (int i = 0; i < numOutputFluids; ++i) {
             outputFluids.add(buffer.readFluidStack());
         }
-        return factory.create(recipeId, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        return factory.create(recipeId, energy, experience, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
     @Override
@@ -126,7 +120,6 @@ public class ThermalRecipeSerializer<T extends ThermalRecipe> extends ForgeRegis
 
         buffer.writeVarInt(recipe.energy);
         buffer.writeFloat(recipe.experience);
-        buffer.writeVarInt(recipe.minPower);
         buffer.writeInt(recipe.maxPower);
 
         int numInputItems = recipe.inputItems.size();
@@ -154,7 +147,7 @@ public class ThermalRecipeSerializer<T extends ThermalRecipe> extends ForgeRegis
 
     public interface IFactory<T extends ThermalRecipe> {
 
-        T create(ResourceLocation recipeId, int energy, float experience, int minPower, int maxPower, List<Ingredient> inputItems, List<FluidStack> inputFluids, List<ItemStack> outputItems, List<Float> chance, List<FluidStack> outputFluids);
+        T create(ResourceLocation recipeId, int energy, float experience, int maxPower, List<Ingredient> inputItems, List<FluidStack> inputFluids, List<ItemStack> outputItems, List<Float> chance, List<FluidStack> outputFluids);
 
     }
 

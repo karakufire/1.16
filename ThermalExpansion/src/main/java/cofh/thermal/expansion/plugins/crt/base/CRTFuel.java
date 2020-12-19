@@ -15,7 +15,6 @@ public class CRTFuel {
 
     private final ResourceLocation name;
     private final int energy;
-    private int minPower;
     private int maxPower;
     private List<Ingredient> item;
     private List<FluidStack> fluid;
@@ -38,12 +37,6 @@ public class CRTFuel {
         return this;
     }
 
-    public CRTFuel minPower(int minPower) {
-
-        this.minPower = minPower;
-        return this;
-    }
-
     public CRTFuel maxPower(int maxPower) {
 
         this.maxPower = maxPower;
@@ -52,12 +45,12 @@ public class CRTFuel {
 
     public <T extends ThermalFuel> T fuel(IFuelBuilder<T> builder) {
 
-        return builder.apply(name, energy, minPower, maxPower, item, fluid);
+        return builder.apply(name, energy, maxPower, item, fluid);
     }
 
     public interface IFuelBuilder<T extends ThermalFuel> {
 
-        T apply(ResourceLocation recipeId, int energy, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids);
+        T apply(ResourceLocation recipeId, int energy, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids);
 
     }
 

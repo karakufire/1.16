@@ -17,9 +17,9 @@ import static cofh.thermal.expansion.init.TExpRecipeTypes.ID_FUEL_MAGMATIC;
 
 public class MagmaticFuel extends ThermalFuel {
 
-    public MagmaticFuel(ResourceLocation recipeId, int energy, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids) {
+    public MagmaticFuel(ResourceLocation recipeId, int energy, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids) {
 
-        super(recipeId, energy, minPower, maxPower, inputItems, inputFluids);
+        super(recipeId, energy, maxPower, inputItems, inputFluids);
     }
 
     @Nonnull

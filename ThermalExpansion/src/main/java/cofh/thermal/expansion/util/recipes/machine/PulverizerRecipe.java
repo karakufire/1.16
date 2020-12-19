@@ -18,9 +18,9 @@ import static cofh.thermal.expansion.init.TExpRecipeTypes.ID_RECIPE_PULVERIZER;
 
 public class PulverizerRecipe extends ThermalRecipe {
 
-    public PulverizerRecipe(ResourceLocation recipeId, int energy, float experience, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids) {
+    public PulverizerRecipe(ResourceLocation recipeId, int energy, float experience, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids) {
 
-        super(recipeId, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        super(recipeId, energy, experience, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
     @Nonnull

@@ -24,19 +24,16 @@ public abstract class ThermalRecipe extends SerializableRecipe {
     protected int energy;
     protected float experience;
 
-    protected int minPower;
     protected int maxPower;
 
     protected boolean catalyzable;
 
-    protected ThermalRecipe(ResourceLocation recipeId, int energy, float experience, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids) {
+    protected ThermalRecipe(ResourceLocation recipeId, int energy, float experience, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids) {
 
         super(recipeId);
 
         this.energy = energy;
         this.experience = Math.max(0.0F, experience);
-
-        this.minPower = minPower;
         this.maxPower = maxPower;
 
         if (inputItems != null) {
@@ -110,11 +107,6 @@ public abstract class ThermalRecipe extends SerializableRecipe {
     public float getExperience() {
 
         return experience;
-    }
-
-    public int getMinPower() {
-
-        return minPower;
     }
 
     public int getMaxPower() {

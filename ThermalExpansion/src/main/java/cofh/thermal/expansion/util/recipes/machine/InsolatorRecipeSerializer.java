@@ -89,7 +89,7 @@ public class InsolatorRecipeSerializer<T extends ThermalRecipe> extends ThermalR
         if (json.has(MAX_POWER)) {
             maxPower = json.get(MAX_POWER).getAsInt();
         }
-        return factory.create(recipeId, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        return factory.create(recipeId, energy, experience, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
 }

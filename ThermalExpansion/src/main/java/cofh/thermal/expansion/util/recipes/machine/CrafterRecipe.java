@@ -34,7 +34,7 @@ public class CrafterRecipe extends BaseMachineRecipe {
 
     public CrafterRecipe(int energy, IRecipe<?> recipe) {
 
-        super(energy, 0, -1, -1);
+        super(energy, 0, -1);
 
         ingredients = recipe.getIngredients();
 

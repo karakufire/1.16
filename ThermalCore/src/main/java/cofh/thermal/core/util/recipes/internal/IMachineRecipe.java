@@ -32,8 +32,6 @@ public interface IMachineRecipe {
 
     float getExperience(IMachineInventory inventory);
 
-    int getMinPower();
-
     int getMaxPower();
 
 }

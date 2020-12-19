@@ -119,12 +119,12 @@ public class CRTRecipe {
 
     public <T extends ThermalRecipe> T recipe(IRecipeBuilder<T> builder) {
 
-        return builder.apply(name, energy, experience, minPower, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
+        return builder.apply(name, energy, experience, maxPower, inputItems, inputFluids, outputItems, outputItemChances, outputFluids);
     }
 
     public interface IRecipeBuilder<T extends ThermalRecipe> {
 
-        T apply(ResourceLocation recipeId, int energy, float experience, int minPower, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids);
+        T apply(ResourceLocation recipeId, int energy, float experience, int maxPower, @Nullable List<Ingredient> inputItems, @Nullable List<FluidStack> inputFluids, @Nullable List<ItemStack> outputItems, @Nullable List<Float> outputItemChances, @Nullable List<FluidStack> outputFluids);
 
     }
 
