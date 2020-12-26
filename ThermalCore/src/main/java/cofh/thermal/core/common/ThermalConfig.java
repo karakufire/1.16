@@ -48,13 +48,13 @@ public class ThermalConfig {
         SERVER_CONFIG.push("Global Options");
 
         keepEnergy = SERVER_CONFIG
-                .comment("If TRUE, most Thermal Blocks will retain Energy when dropped. This setting does not control ALL blocks.")
+                .comment("If TRUE, most Thermal Blocks will retain Energy when dropped.\nThis setting does not control ALL blocks.")
                 .define("Blocks Retain Energy", true);
         keepItems = SERVER_CONFIG
-                .comment("If TRUE, most Thermal Blocks will retain Inventory Contents when dropped. This setting does not control ALL blocks.")
+                .comment("If TRUE, most Thermal Blocks will retain Inventory Contents when dropped.\nThis setting does not control ALL blocks.")
                 .define("Blocks Retain Inventory", false);
         keepFluids = SERVER_CONFIG
-                .comment("If TRUE, most Thermal Blocks will retain Tank Contents when dropped. This setting does not control ALL blocks.")
+                .comment("If TRUE, most Thermal Blocks will retain Tank Contents when dropped.\nThis setting does not control ALL blocks.")
                 .define("Blocks Retain Tank Contents", false);
         keepAugments = SERVER_CONFIG
                 .comment("If TRUE, Thermal Blocks will retain Augments when dropped.")
@@ -77,18 +77,29 @@ public class ThermalConfig {
                 .comment("If TRUE, various 'Vanilla+' Blocks and Recipes are enabled.")
                 .define("Vanilla+", true);
         flagRockwool = SERVER_CONFIG
-                .comment("IF TRUE, Rockwool Blocks and Recipes are enabled.")
+                .comment("If TRUE, Rockwool Blocks and Recipes are enabled.")
                 .define("Rockwool", true);
 
         flagMobBasalz = SERVER_CONFIG
-                .comment("IF TRUE, the Basalz Mob is enabled.")
+                .comment("If TRUE, the Basalz Mob is enabled.")
                 .define("Basalz", true);
         flagMobBlitz = SERVER_CONFIG
-                .comment("IF TRUE, the Blitz Mob is enabled.")
+                .comment("If TRUE, the Blitz Mob is enabled.")
                 .define("Blitz", true);
         flagMobBlizz = SERVER_CONFIG
-                .comment("IF TRUE, the Blizz Mob is enabled.")
+                .comment("If TRUE, the Blizz Mob is enabled.")
                 .define("Blizz", true);
+
+        SERVER_CONFIG.pop();
+
+        SERVER_CONFIG.push("Augments");
+
+        flagRSControl = SERVER_CONFIG
+                .comment("If TRUE, Redstone Control is enabled by default on most augmentable blocks which support it.\nIf FALSE, an augment is required.\nThis setting does not control ALL blocks.")
+                .define("Default Redstone Control", true);
+        flagXPStorage = SERVER_CONFIG
+                .comment("If TRUE, XP Storage is enabled by default on most augmentable blocks which support it.\nIf FALSE, an augment is required.\nThis setting does not control ALL blocks.")
+                .define("Default XP Storage", false);
 
         SERVER_CONFIG.pop();
 
@@ -159,6 +170,9 @@ public class ThermalConfig {
         setFlag(FLAG_MOB_BLITZ, flagMobBlitz.get());
         setFlag(FLAG_MOB_BLIZZ, flagMobBlizz.get());
 
+        setFlag(FLAG_RS_CONTROL_AUGMENT, !flagRSControl.get());
+        setFlag(FLAG_XP_STORAGE_AUGMENT, !flagXPStorage.get());
+
         refreshWorldConfig();
     }
 
@@ -206,6 +220,9 @@ public class ThermalConfig {
     public static BooleanValue keepRSControl;
     public static BooleanValue keepSideConfig;
     public static BooleanValue keepTransferControl;
+
+    public static BooleanValue flagRSControl;
+    public static BooleanValue flagXPStorage;
 
     private static BooleanValue flagVanillaBlocks;
     private static BooleanValue flagRockwool;
