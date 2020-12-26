@@ -558,7 +558,9 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
     @Override
     public void onControlUpdate() {
 
-        TileControlPacket.sendToClient(this);
+        if (world != null) {
+            TileControlPacket.sendToClient(this);
+        }
     }
     // endregion
 
@@ -652,6 +654,11 @@ public abstract class ThermalTileBase extends TileCoFH implements ISecurableTile
         for (int i = 0; i < tankInv.getTanks(); ++i) {
             tankInv.getTank(i).applyModifiers(getFluidStorageMod());
         }
+    }
+
+    protected boolean defaultReconfigState() {
+
+        return ThermalConfig.flagReconfigSides.get();
     }
 
     protected boolean defaultRedstoneControlState() {

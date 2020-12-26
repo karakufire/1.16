@@ -23,6 +23,13 @@ public class CellReconfigControlModule extends ReconfigControlModule {
     }
 
     @Override
+    public void disable() {
+
+        this.sides = new SideConfig[]{SIDE_NONE, SIDE_NONE, SIDE_NONE, SIDE_NONE, SIDE_NONE, SIDE_NONE};
+        tile.onControlUpdate();
+    }
+
+    @Override
     public SideConfig getSideConfig(int side) {
 
         if (side > 5) {
@@ -36,7 +43,7 @@ public class CellReconfigControlModule extends ReconfigControlModule {
     public SideConfig getSideConfig(Direction side) {
 
         if (side == null || !isReconfigurable()) {
-            return SIDE_ACCESSIBLE;
+            return SIDE_NONE;
         }
         return sides[side.ordinal()];
     }

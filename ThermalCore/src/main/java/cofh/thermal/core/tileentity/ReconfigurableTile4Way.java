@@ -12,6 +12,7 @@ import cofh.core.util.helpers.FluidHelper;
 import cofh.core.util.helpers.InventoryHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
@@ -33,6 +34,7 @@ import net.minecraftforge.items.wrapper.EmptyHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.Map;
 
 import static cofh.core.client.renderer.model.ModelUtils.FLUID;
 import static cofh.core.client.renderer.model.ModelUtils.SIDES;
@@ -40,6 +42,7 @@ import static cofh.core.util.StorageGroup.*;
 import static cofh.core.util.constants.Constants.DIRECTIONS;
 import static cofh.core.util.constants.Constants.FACING_HORIZONTAL;
 import static cofh.core.util.constants.NBTTags.*;
+import static cofh.core.util.control.IReconfigurable.SideConfig.SIDE_ACCESSIBLE;
 import static cofh.core.util.helpers.BlockHelper.*;
 
 public abstract class ReconfigurableTile4Way extends ThermalTileBase implements IReconfigurableTile, ITransferControllableTile {
@@ -55,6 +58,7 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
     public ReconfigurableTile4Way(TileEntityType<?> tileEntityTypeIn) {
 
         super(tileEntityTypeIn);
+        reconfigControl.setEnabled(() -> reconfigControlFeature);
     }
 
     @Override
@@ -306,12 +310,64 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
     }
     // endregion
 
+    // region IConveyableData
+    @Override
+    public void readConveyableData(PlayerEntity player, CompoundNBT tag) {
+
+        reconfigControl.read(tag);
+        transferControl.read(tag);
+
+        super.readConveyableData(player, tag);
+    }
+
+    @Override
+    public void writeConveyableData(PlayerEntity player, CompoundNBT tag) {
+
+        reconfigControl.write(tag);
+        transferControl.write(tag);
+
+        super.writeConveyableData(player, tag);
+    }
+    // endregion
+
     // region ITileCallback
     @Override
     public void onControlUpdate() {
 
         updateSidedHandlers();
         super.onControlUpdate();
+    }
+    // endregion
+
+    // region AUGMENTS
+    protected boolean reconfigControlFeature = defaultReconfigState();
+
+    @Override
+    protected void resetAttributes() {
+
+        super.resetAttributes();
+
+        reconfigControlFeature = defaultReconfigState();
+    }
+
+    @Override
+    protected void setAttributesFromAugment(CompoundNBT augmentData) {
+
+        super.setAttributesFromAugment(augmentData);
+
+        reconfigControlFeature |= getAttributeMod(augmentData, TAG_AUGMENT_FEATURE_SIDE_CONFIG) > 0;
+    }
+
+    @Override
+    protected void finalizeAttributes(Map<Enchantment, Integer> enchantmentMap) {
+
+        super.finalizeAttributes(enchantmentMap);
+
+        if (!reconfigControlFeature) {
+            // TODO: Logic
+            transferControl.disable();
+            reconfigControl.disable();
+        }
     }
     // endregion
 
@@ -395,26 +451,6 @@ public abstract class ReconfigurableTile4Way extends ThermalTileBase implements 
             return super.getFluidHandlerCapability(side);
         }
         return sidedFluidCaps[side.ordinal()].cast();
-    }
-    // endregion
-
-    // region IConveyableData
-    @Override
-    public void readConveyableData(PlayerEntity player, CompoundNBT tag) {
-
-        reconfigControl.read(tag);
-        transferControl.read(tag);
-
-        super.readConveyableData(player, tag);
-    }
-
-    @Override
-    public void writeConveyableData(PlayerEntity player, CompoundNBT tag) {
-
-        reconfigControl.write(tag);
-        transferControl.write(tag);
-
-        super.writeConveyableData(player, tag);
     }
     // endregion
 }
