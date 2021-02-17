@@ -104,10 +104,10 @@
   "fluid.thermal.tree_oil": "ツリーオイル",
 
   "info.thermal.catalysts": "触媒",
-  "info.thermal.energy_mod": "エネルギーモディファイアー",
-  "info.thermal.primary_mod": "主生産物モディファイアー",
-  "info.thermal.secondary_mod": "副生産物モディファイアー",
-  "info.thermal.use_chance": "確率使用",
+  "info.thermal.energy_mod": "エネルギー倍率",
+  "info.thermal.primary_mod": "主産物倍率",
+  "info.thermal.secondary_mod": "副産物倍率",
+  "info.thermal.use_chance": "消費確率",
 
   "info.thermal.detonator.mode.0": "モード: 登録",
   "info.thermal.detonator.mode.1": "モード: 起爆",
@@ -347,6 +347,14 @@
 
   "item.thermal.fluid_tank_augment": "拡張タンク機構",
 
+  "item.thermal.fluid_tank_creative_augment": "クリエイティブタンク構築",
+  "item.thermal.fluid_tank_creative_augment.desc": "機能的な無限の流体",
+
+  "item.thermal.filter_fluid_augment": "流体フィルター",
+  "item.thermal.filter_fluid_augment.desc": "NYI",
+  "item.thermal.filter_item_augment": "アイテムフィルター",
+  "item.thermal.filter_item_augment.desc": "NYI",
+
   "item.thermal.machine_catalyst_augment": "触媒再生室",
   "item.thermal.machine_cycle_augment": "周期的処理",
   "item.thermal.machine_cycle_augment.desc": "作業完了時に、完成品を入力スロットに移動される場合があります。",
@@ -357,8 +365,18 @@
   "item.thermal.potion_duration_augment": "錬金的増量剤",
 
   "item.thermal.rf_coil_augment": "拡張RFコイル",
+
+  "item.thermal.rf_coil_creative_augment": "クリエイティブRFコイル",
+  "item.thermal.rf_coil_creative_augment.desc": "機能的な無限のRF",
+
   "item.thermal.rf_coil_storage_augment": "安定RFコイル",
   "item.thermal.rf_coil_xfer_augment": "高フラックスRFコイル",
+
+  "item.thermal.rs_control_augment": "レッドストーン応答機構",
+  "item.thermal.rs_control_augment.desc": "レッドストーン信号による制御を可能にします。",
+
+  "item.thermal.side_config_augment": "モジュラー再調整",
+  "item.thermal.side_config_augment.desc": "側面の搬入出設定を可能にします。",
 
   "item.thermal.upgrade_augment_1": "ハーデンド統合コンポーネント",
   "item.thermal.upgrade_augment_1.desc": "基本属性を改良し、オーグメントを拡張します。",
@@ -370,12 +388,17 @@
   "item.thermal.upgrade_augment_4": "レゾナント+統合コンポーネント",
   "item.thermal.upgrade_augment_4.desc": "基本属性を改良し、オーグメントを拡張します。",
 
+  "item.thermal.xp_storage_augment": "知識濃縮装置",
+  "item.thermal.xp_storage_augment.desc": "経験値の保管と取り出しができるようになります。",
+
   "_comment": "========================================================================================================",
   "_comment": "Thermal Core - External",
   "_comment": "These 'live' in Thermal Core but are non-default and registered from multiple possible modules.",
   "_comment": "========================================================================================================",
 
+  "block.thermal.device_collector": "アイテム吸引器",
   "block.thermal.device_hive_extractor": "巣箱ホッパー",
+  "block.thermal.device_potion_diffuser": "浸出散布機",
   "block.thermal.device_rock_gen": "火成岩生成機",
   "block.thermal.device_tree_extractor": "木精抽出機",
   "block.thermal.device_water_gen": "水生成器",
@@ -388,9 +411,17 @@
 
   "block.thermal.tinker_bench": "鍛冶職人の作業台",
 
+  "info.thermal.device_collector.0": "周辺のエリアからアイテムを拾います。",
+  "info.thermal.device_collector.1": "この動作にはフィルター設定を適用できます。",
+  "info.thermal.device_collector.2": "床をきれいにしましょう",
+
   "info.thermal.device_hive_extractor.0": "生産物を養蜂箱から慎重に抽出します。",
   "info.thermal.device_hive_extractor.1": "ミツバチにも、養蜂家にも助けとなります。",
   "info.thermal.device_hive_extractor.2": "ブンブンブン",
+  
+  "info.thermal.device_potion_diffuser.0": "ポーションを周辺に散布します。",
+  "info.thermal.device_potion_diffuser.1": "試薬を使用して効果を高めることができます。",
+  "info.thermal.device_potion_diffuser.2": "深呼吸しよう",
 
   "info.thermal.device_rock_gen.0": "様々な石を生成します。",
   "info.thermal.device_rock_gen.1": "溶岩原を隣接させ、冷却する必要があります。",
@@ -693,9 +724,9 @@
   "info.thermal.machine_chiller.1": "流体の場合金型で製品の形状を決めることが出来ます。",
   "info.thermal.machine_chiller.2": "ﾌﾞﾙｯ",
 
-  "info.thermal.machine_crafter.0": "グリッドにアイテムを配置し、クラフトレシピを指定します。",
+  "info.thermal.machine_crafter.0": "グリッドにアイテムを配置してクラフトレシピを決めます。",
   "info.thermal.machine_crafter.1": "あとは確認ボタンを押すだけ!",
-  "info.thermal.machine_crafter.2": "全てのレシピが使えるわけではありません。",
+  "info.thermal.machine_crafter.2": "全てのレシピが使えるとは限りません。",
 
   "info.thermal.machine_crucible.0": "高熱により固体を液体に変換します。",
   "info.thermal.machine_crucible.1": "上位のブロックの作成に有用です。",
