@@ -72,7 +72,7 @@ public class WrenchItem extends ItemCoFH {
     @Override
     public boolean hitEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
-        target.addPotionEffect(new EffectInstance(WRENCHED, 60));
+        target.addPotionEffect(new EffectInstance(WRENCHED, 60, 0, false, false));
         stack.damageItem(1, attacker, (entity) -> {
             entity.sendBreakAnimation(EquipmentSlotType.MAINHAND);
         });

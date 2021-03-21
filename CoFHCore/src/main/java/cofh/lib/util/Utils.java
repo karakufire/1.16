@@ -2,6 +2,7 @@ package cofh.lib.util;
 
 import cofh.lib.enchantment.EnchantmentCoFH;
 import cofh.lib.util.helpers.MathHelper;
+import cofh.lib.util.references.ItemTagsCoFH;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import com.google.gson.Gson;
@@ -112,6 +113,26 @@ public class Utils {
             world.addEntity(bolt);
         }
         return true;
+    }
+
+    public static boolean destroyBlock(World world, BlockPos pos, boolean dropBlock, @Nullable Entity entityIn) {
+
+        BlockState state = world.getBlockState(pos);
+        if (state.isAir(world, pos) || state.getBlockHardness(world, pos) < 0 || (entityIn instanceof PlayerEntity && state.getPlayerRelativeBlockHardness((PlayerEntity) entityIn, world, pos) < 0)) {
+            return false;
+        } else {
+            FluidState ifluidstate = world.getFluidState(pos);
+            if (dropBlock) {
+                TileEntity tileentity = state.hasTileEntity() ? world.getTileEntity(pos) : null;
+                Block.spawnDrops(state, world, pos, tileentity, entityIn, ItemStack.EMPTY);
+            }
+            return world.setBlockState(pos, ifluidstate.getBlockState(), 3);
+        }
+    }
+
+    public static boolean isWrench(Item item) {
+
+        return item.isIn(ItemTagsCoFH.TOOLS_WRENCH);
     }
 
     // region TIME CHECKS
@@ -374,21 +395,6 @@ public class Utils {
         }
     }
     // endregion
-
-    public static boolean destroyBlock(World world, BlockPos pos, boolean dropBlock, @Nullable Entity entityIn) {
-
-        BlockState state = world.getBlockState(pos);
-        if (state.isAir(world, pos) || state.getBlockHardness(world, pos) < 0 || (entityIn instanceof PlayerEntity && state.getPlayerRelativeBlockHardness((PlayerEntity) entityIn, world, pos) < 0)) {
-            return false;
-        } else {
-            FluidState ifluidstate = world.getFluidState(pos);
-            if (dropBlock) {
-                TileEntity tileentity = state.hasTileEntity() ? world.getTileEntity(pos) : null;
-                Block.spawnDrops(state, world, pos, tileentity, entityIn, ItemStack.EMPTY);
-            }
-            return world.setBlockState(pos, ifluidstate.getBlockState(), 3);
-        }
-    }
 
     // region NAMESPACE
     public static String getItemNamespace(Item item) {

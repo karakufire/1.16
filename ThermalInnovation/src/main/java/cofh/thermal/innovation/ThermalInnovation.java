@@ -36,12 +36,11 @@ public class ThermalInnovation {
 
         setFlag(FLAG_POTION_AUGMENTS, true);
 
-        setFlag(ID_DEVICE_POTION_DIFFUSER, true);
-
         setFlag(FLAG_TOOL_COMPONENTS, true);
 
         setFlag(FLAG_ELEMENTAL_EXPLOSIVES, true);
 
+        setFlag(ID_DEVICE_POTION_DIFFUSER, true);
         setFlag(ID_CHARGE_BENCH, true);
     }
 

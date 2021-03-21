@@ -281,8 +281,8 @@ public class TCoreBlocks {
         registerAugBlock(ID_DEVICE_WATER_GEN, () -> new TileBlockActive4Way(create(Material.IRON).sound(SoundType.LANTERN).hardnessAndResistance(2.0F).harvestTool(ToolType.PICKAXE), DeviceWaterGenTile::new), deviceAugs, DeviceWaterGenTile.AUG_VALIDATOR, getFlag(ID_DEVICE_WATER_GEN));
         registerAugBlock(ID_DEVICE_ROCK_GEN, () -> new TileBlockActive4Way(create(Material.IRON).sound(SoundType.LANTERN).hardnessAndResistance(2.0F).harvestTool(ToolType.PICKAXE).setLightLevel(lightValue(ACTIVE, 14)), DeviceRockGenTile::new), deviceAugs, DeviceRockGenTile.AUG_VALIDATOR, getFlag(ID_DEVICE_ROCK_GEN));
         registerAugBlock(ID_DEVICE_COLLECTOR, () -> new TileBlockActive4Way(create(Material.IRON).sound(SoundType.LANTERN).hardnessAndResistance(2.0F).harvestTool(ToolType.PICKAXE), DeviceCollectorTile::new), deviceAugs, DeviceCollectorTile.AUG_VALIDATOR, getFlag(ID_DEVICE_COLLECTOR));
-        registerAugBlock(ID_DEVICE_POTION_DIFFUSER, () -> new TileBlockActive4Way(create(Material.IRON).sound(SoundType.LANTERN).hardnessAndResistance(2.0F).harvestTool(ToolType.PICKAXE), DevicePotionDiffuserTile::new), deviceAugs, DevicePotionDiffuserTile.AUG_VALIDATOR, getFlag(ID_DEVICE_POTION_DIFFUSER));
         registerAugBlock(ID_DEVICE_NULLIFIER, () -> new TileBlockActive4Way(create(Material.IRON).sound(SoundType.LANTERN).hardnessAndResistance(2.0F).harvestTool(ToolType.PICKAXE).setLightLevel(lightValue(ACTIVE, 7)), DeviceNullifierTile::new), deviceAugs, DeviceNullifierTile.AUG_VALIDATOR, getFlag(ID_DEVICE_NULLIFIER));
+        registerAugBlock(ID_DEVICE_POTION_DIFFUSER, () -> new TileBlockActive4Way(create(Material.IRON).sound(SoundType.LANTERN).hardnessAndResistance(2.0F).harvestTool(ToolType.PICKAXE), DevicePotionDiffuserTile::new), deviceAugs, DevicePotionDiffuserTile.AUG_VALIDATOR, getFlag(ID_DEVICE_POTION_DIFFUSER));
 
         IntSupplier storageAugs = () -> ThermalConfig.storageAugments;
 
@@ -303,8 +303,8 @@ public class TCoreBlocks {
         TILE_ENTITIES.register(ID_DEVICE_WATER_GEN, () -> TileEntityType.Builder.create(DeviceWaterGenTile::new, DEVICE_WATER_GEN_BLOCK).build(null));
         TILE_ENTITIES.register(ID_DEVICE_ROCK_GEN, () -> TileEntityType.Builder.create(DeviceRockGenTile::new, DEVICE_ROCK_GEN_BLOCK).build(null));
         TILE_ENTITIES.register(ID_DEVICE_COLLECTOR, () -> TileEntityType.Builder.create(DeviceCollectorTile::new, DEVICE_COLLECTOR_BLOCK).build(null));
-        TILE_ENTITIES.register(ID_DEVICE_POTION_DIFFUSER, () -> TileEntityType.Builder.create(DevicePotionDiffuserTile::new, DEVICE_POTION_DIFFUSER_BLOCK).build(null));
         TILE_ENTITIES.register(ID_DEVICE_NULLIFIER, () -> TileEntityType.Builder.create(DeviceNullifierTile::new, DEVICE_NULLIFIER_BLOCK).build(null));
+        TILE_ENTITIES.register(ID_DEVICE_POTION_DIFFUSER, () -> TileEntityType.Builder.create(DevicePotionDiffuserTile::new, DEVICE_POTION_DIFFUSER_BLOCK).build(null));
 
         TILE_ENTITIES.register(ID_TINKER_BENCH, () -> TileEntityType.Builder.create(TinkerBenchTile::new, TINKER_BENCH_BLOCK).build(null));
         TILE_ENTITIES.register(ID_CHARGE_BENCH, () -> TileEntityType.Builder.create(ChargeBenchTile::new, CHARGE_BENCH_BLOCK).build(null));

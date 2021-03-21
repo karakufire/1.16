@@ -1381,18 +1381,6 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .addCriterion("has_redstone_servo", hasItem(redstoneServo))
                 .build(withConditions(consumer).flag(ID_DEVICE_COLLECTOR));
 
-        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_DEVICE_POTION_DIFFUSER))
-                .key('C', Items.GLASS_BOTTLE)
-                .key('G', Tags.Items.GLASS)
-                .key('I', ItemTagsCoFH.INGOTS_SILVER)
-                .key('P', redstoneServo)
-                .key('X', ItemTagsCoFH.GEARS_CONSTANTAN)
-                .patternLine("IXI")
-                .patternLine("GCG")
-                .patternLine("IPI")
-                .addCriterion("has_redstone_servo", hasItem(redstoneServo))
-                .build(withConditions(consumer).flag(ID_DEVICE_POTION_DIFFUSER));
-
         ShapedRecipeBuilder.shapedRecipe(reg.get(ID_DEVICE_NULLIFIER))
                 .key('C', Items.LAVA_BUCKET)
                 .key('G', Tags.Items.GLASS)
@@ -1404,6 +1392,18 @@ public class TCoreRecipeProvider extends RecipeProviderCoFH {
                 .patternLine("IPI")
                 .addCriterion("has_redstone_servo", hasItem(redstoneServo))
                 .build(withConditions(consumer).flag(ID_DEVICE_NULLIFIER));
+
+        ShapedRecipeBuilder.shapedRecipe(reg.get(ID_DEVICE_POTION_DIFFUSER))
+                .key('C', Items.GLASS_BOTTLE)
+                .key('G', Tags.Items.GLASS)
+                .key('I', ItemTagsCoFH.INGOTS_SILVER)
+                .key('P', redstoneServo)
+                .key('X', ItemTagsCoFH.GEARS_CONSTANTAN)
+                .patternLine("IXI")
+                .patternLine("GCG")
+                .patternLine("IPI")
+                .addCriterion("has_redstone_servo", hasItem(redstoneServo))
+                .build(withConditions(consumer).flag(ID_DEVICE_POTION_DIFFUSER));
 
         ShapedRecipeBuilder.shapedRecipe(reg.get(ID_ENERGY_CELL))
                 .key('C', energyCellFrame)

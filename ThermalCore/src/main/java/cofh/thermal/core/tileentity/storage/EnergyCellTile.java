@@ -39,8 +39,14 @@ public class EnergyCellTile extends CellTileBase implements ITickableTileEntity 
 
         super(ENERGY_CELL_TILE);
 
-        energyStorage = new EnergyStorageAdjustable(BASE_CAPACITY, BASE_RECV, BASE_SEND)
-                .setTransferLimits(() -> amountInput, () -> amountOutput);
+        energyStorage = new EnergyStorageAdjustable(BASE_CAPACITY, BASE_RECV, BASE_SEND) {
+
+            @Override
+            public boolean canExtract() {
+
+                return false;
+            }
+        }.setTransferLimits(() -> amountInput, () -> amountOutput);
 
         amountInput = energyStorage.getMaxReceive();
         amountOutput = energyStorage.getMaxExtract();

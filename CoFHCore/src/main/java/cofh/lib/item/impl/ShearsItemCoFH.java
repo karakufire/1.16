@@ -6,6 +6,7 @@ import net.minecraft.item.IItemTier;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShearsItem;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorldReader;
 
 public class ShearsItemCoFH extends ShearsItem implements ICoFHItem {
 
@@ -35,7 +36,7 @@ public class ShearsItemCoFH extends ShearsItem implements ICoFHItem {
     }
 
     @Override
-    public boolean doesSneakBypassUse(ItemStack stack, net.minecraft.world.IWorldReader world, BlockPos pos, PlayerEntity player) {
+    public boolean doesSneakBypassUse(ItemStack stack, IWorldReader world, BlockPos pos, PlayerEntity player) {
 
         return true;
     }

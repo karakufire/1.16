@@ -103,14 +103,11 @@ public class TCoreIDs {
     // region DEVICES
     public static final String ID_DEVICE_HIVE_EXTRACTOR = "device_hive_extractor";
     public static final String ID_DEVICE_TREE_EXTRACTOR = "device_tree_extractor";
-
-    public static final String ID_DEVICE_ROCK_GEN = "device_rock_gen";
     public static final String ID_DEVICE_WATER_GEN = "device_water_gen";
-
+    public static final String ID_DEVICE_ROCK_GEN = "device_rock_gen";
     public static final String ID_DEVICE_COLLECTOR = "device_collector";
-    public static final String ID_DEVICE_POTION_DIFFUSER = "device_potion_diffuser";
-
     public static final String ID_DEVICE_NULLIFIER = "device_nullifier";
+    public static final String ID_DEVICE_POTION_DIFFUSER = "device_potion_diffuser";
     // endregion
 
     // region STORAGE
