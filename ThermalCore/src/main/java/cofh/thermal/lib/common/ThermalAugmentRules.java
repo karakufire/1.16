@@ -142,11 +142,6 @@ public class ThermalAugmentRules {
         return createAllowValidator(new ObjectOpenHashSet<>(allowAugTypes));
     }
 
-    public static BiPredicate<ItemStack, List<ItemStack>> createDenyValidator(String... denyAugTypes) {
-
-        return createDenyValidator(new ObjectOpenHashSet<>(denyAugTypes));
-    }
-
     public static BiPredicate<ItemStack, List<ItemStack>> createAllowValidator(final Set<String> allowAugTypes) {
 
         return (newAugment, augments) -> {
@@ -155,13 +150,13 @@ public class ThermalAugmentRules {
             if (!newType.isEmpty() && !allowAugTypes.contains(newType)) {
                 return false;
             }
-            if (isTypeExclusive(newType)) {
-                for (ItemStack augment : augments) {
-                    if (newType.equals(AugmentDataHelper.getAugmentType(augment))) {
-                        return false;
-                    }
-                }
-            }
+            //            if (isTypeExclusive(newType)) {
+            //                for (ItemStack augment : augments) {
+            //                    if (newType.equals(AugmentDataHelper.getAugmentType(augment))) {
+            //                        return false;
+            //                    }
+            //                }
+            //            }
             if (isUnique(newAugment)) {
                 for (ItemStack augment : augments) {
                     if (ItemHelper.itemsEqual(newAugment, augment)) {
@@ -173,6 +168,11 @@ public class ThermalAugmentRules {
         };
     }
 
+    public static BiPredicate<ItemStack, List<ItemStack>> createDenyValidator(String... denyAugTypes) {
+
+        return createDenyValidator(new ObjectOpenHashSet<>(denyAugTypes));
+    }
+
     public static BiPredicate<ItemStack, List<ItemStack>> createDenyValidator(final Set<String> denyAugTypes) {
 
         return (newAugment, augments) -> {
@@ -181,13 +181,13 @@ public class ThermalAugmentRules {
             if (!newType.isEmpty() && denyAugTypes.contains(newType)) {
                 return false;
             }
-            if (isTypeExclusive(newType)) {
-                for (ItemStack augment : augments) {
-                    if (newType.equals(AugmentDataHelper.getAugmentType(augment))) {
-                        return false;
-                    }
-                }
-            }
+            //            if (isTypeExclusive(newType)) {
+            //                for (ItemStack augment : augments) {
+            //                    if (newType.equals(AugmentDataHelper.getAugmentType(augment))) {
+            //                        return false;
+            //                    }
+            //                }
+            //            }
             if (isUnique(newAugment)) {
                 for (ItemStack augment : augments) {
                     if (ItemHelper.itemsEqual(newAugment, augment)) {

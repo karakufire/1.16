@@ -44,9 +44,9 @@ public class TCoreClientEvents {
             if (!type.isEmpty()) {
                 IFormattableTextComponent typeText = getTextComponent("info.thermal.augment.type." + type).mergeStyle(TextFormatting.WHITE);
 
-                if (isTypeExclusive(type)) {
-                    typeText.mergeStyle(TextFormatting.UNDERLINE);
-                }
+                //                if (isTypeExclusive(type)) {
+                //                    typeText.mergeStyle(TextFormatting.UNDERLINE);
+                //                }
                 tooltip.add(getTextComponent("info.cofh.type")
                         .mergeStyle(TextFormatting.YELLOW)
                         .appendString(": ")

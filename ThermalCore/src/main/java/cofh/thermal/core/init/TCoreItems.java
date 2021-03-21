@@ -73,6 +73,20 @@ public class TCoreItems {
         flagUniqueAugment(ITEMS.get("side_config_augment"));
         flagUniqueAugment(ITEMS.get("xp_storage_augment"));
 
+        flagUniqueAugment(ITEMS.get("upgrade_augment_1"));
+        flagUniqueAugment(ITEMS.get("upgrade_augment_2"));
+        flagUniqueAugment(ITEMS.get("upgrade_augment_3"));
+
+        flagUniqueAugment(ITEMS.get("rf_coil_augment"));
+        flagUniqueAugment(ITEMS.get("rf_coil_storage_augment"));
+        flagUniqueAugment(ITEMS.get("rf_coil_xfer_augment"));
+        flagUniqueAugment(ITEMS.get("rf_coil_creative_augment"));
+
+        flagUniqueAugment(ITEMS.get("fluid_tank_augment"));
+        flagUniqueAugment(ITEMS.get("fluid_tank_creative_augment"));
+
+        flagUniqueAugment(ITEMS.get("item_filter_augment"));
+
         flagUniqueAugment(ITEMS.get("machine_efficiency_creative_augment"));
         flagUniqueAugment(ITEMS.get("machine_catalyst_creative_augment"));
         flagUniqueAugment(ITEMS.get("machine_cycle_augment"));
