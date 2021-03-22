@@ -121,9 +121,11 @@ public class TCoreLootTableProvider extends LootTableProviderCoFH {
         createSyncDropTable(regBlocks.get(ID_DEVICE_WATER_GEN));
         createSyncDropTable(regBlocks.get(ID_DEVICE_ROCK_GEN));
         createSyncDropTable(regBlocks.get(ID_DEVICE_COLLECTOR));
+        createSyncDropTable(regBlocks.get(ID_DEVICE_NULLIFIER));
         createSyncDropTable(regBlocks.get(ID_DEVICE_POTION_DIFFUSER));
 
         createSyncDropTable(regBlocks.get(ID_TINKER_BENCH));
+        createSyncDropTable(regBlocks.get(ID_CHARGE_BENCH));
 
         createSyncDropTable(regBlocks.get(ID_ENERGY_CELL));
         createSyncDropTable(regBlocks.get(ID_FLUID_CELL));
