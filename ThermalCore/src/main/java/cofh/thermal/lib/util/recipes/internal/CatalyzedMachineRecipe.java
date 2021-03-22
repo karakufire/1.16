@@ -95,7 +95,7 @@ public abstract class CatalyzedMachineRecipe extends BaseMachineRecipe {
         // Catalyst Logic
         if (catalyzable && inventory.inputSlots().size() > catalystSlot) {
             IRecipeCatalyst catalyst = getCatalyst(inventory.inputSlots().get(catalystSlot).getItemStack());
-            return catalyst == null ? super.getEnergy(inventory) : Math.abs(Math.round(energy * catalyst.getEnergyMod() * inventory.getMachineProperties().getEnergyMod()));
+            return catalyst == null ? super.getEnergy(inventory) : Math.abs(Math.round(catalyst.getEnergyMod() * super.getEnergy(inventory)));
         }
         return super.getEnergy(inventory);
     }
@@ -105,7 +105,7 @@ public abstract class CatalyzedMachineRecipe extends BaseMachineRecipe {
 
         if (catalyzable && inventory.inputSlots().size() > catalystSlot) {
             IRecipeCatalyst catalyst = getCatalyst(inventory.inputSlots().get(catalystSlot).getItemStack());
-            return catalyst == null ? super.getXp(inventory) : Math.round(energy * catalyst.getXpMod() * inventory.getMachineProperties().getXpMod());
+            return catalyst == null ? super.getXp(inventory) : Math.abs(catalyst.getXpMod() * super.getXp(inventory));
         }
         return super.getXp(inventory);
     }
