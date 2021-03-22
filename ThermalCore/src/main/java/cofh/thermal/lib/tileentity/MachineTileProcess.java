@@ -135,7 +135,11 @@ public abstract class MachineTileProcess extends ReconfigurableTile4Way implemen
 
         process = 0;
         isActive = false;
+        wasActive = true;
         clearRecipe();
+        if (world != null) {
+            timeTracker.markTime(world);
+        }
     }
 
     protected int processTick() {
