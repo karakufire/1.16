@@ -31,6 +31,7 @@
   "info.cofh.arrows": "Стрелы",
   "info.cofh.chance": "Шанс",
   "info.cofh.chance_additional": "Дополнительный шанс",
+  "info.cofh.click_to_claim": "§e§oПКМ§r§7 для утверждения.",
   "info.cofh.click_to_clear": "Alt + Shift + ПКМ для очистки",
   "info.cofh.effects": "Эффекты",
   "info.cofh.efficiency": "Эффективность",
@@ -66,6 +67,13 @@
   "info.cofh.energy_prod": "Производ. энерг.",
   "info.cofh.energy_stored": "Накопленная энергия",
   "info.cofh.energy_use": "Исп. энергии",
+
+  "info.cofh.fluid_filter": "Жидкостный фильтр",
+  "info.cofh.item_filter": "Предметный фильтр",
+  "info.cofh.filter.allowlist.0": "Запрещающий лист",
+  "info.cofh.filter.allowlist.1": "Разрешающий лист",
+  "info.cofh.filter.checkNBT.0": "Игнорировать NBT",
+  "info.cofh.filter.checkNBT.1": "Использовать NBT",
 
   "info.cofh.configuration": "Конфигурация",
   "info.cofh.transfer_in_disabled": "Авто-вход отключен",
@@ -125,6 +133,8 @@
   "effect.cofh_core.sundered": "Разлука",
   "effect.cofh_core.wrenched": "Кручение!",
 
+  "enchantment.cofh_core.disabled": "Мерцание",
+  "enchantment.cofh_core.disabled.desc": "Отключает чары, которые ничего не делают.",
   "enchantment.cofh_core.holding": "Удержание",
   "enchantment.cofh_core.holding.desc": "Увеличивает ёмкость хранения определённых предметов.",
 
@@ -135,6 +145,9 @@
   "fluid.cofh_core.steam": "Пар",
 
   "item.cofh_core.ectoplasm": "Эктоплазма",
+
+  "info.cofh_core.item_filter.0": "Поместите предметы в слоты, чтобы добавить их в список фильтра.",
+  "info.cofh_core.item_filter.1": "Дополнительные параметры можно использовать для точной настройки поведения.",
 
   "key.cofh.mode_change_increment": "Циклический режим: вперёд",
   "key.cofh.mode_change_decrement": "Циклический режим: реверс",
