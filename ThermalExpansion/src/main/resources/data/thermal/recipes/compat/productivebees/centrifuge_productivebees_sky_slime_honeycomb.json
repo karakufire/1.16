@@ -1,12 +1,12 @@
 {
   "type": "thermal:centrifuge",
   "ingredient": {
-    "item": "productivebees:honeycomb_plastic"
+    "item": "productivebees:honeycomb_sky_slimy"
   },
   "result": [
     {
-      "item": "industrialforegoing:plastic",
-      "chance": 1.0
+      "item": "tconstruct:sky_slime_ball",
+      "chance": 1
     },
     {
       "fluid": "cofh_core:honey",
@@ -20,7 +20,7 @@
     },
 	{
       "type": "forge:mod_loaded",
-      "modid": "industrialforegoing"
+      "modid": "tconstruct"
     }
   ]
 }
