@@ -7,10 +7,6 @@
     {
       "item": "appliedenergistics2:charged_certus_quartz_crystal",
       "chance": 2.0
-    },
-	{
-      "item": "appliedenergistics2:certus_quartz_dust",
-      "chance": 0.25
     }
   ],
   "experience": 0.2,
