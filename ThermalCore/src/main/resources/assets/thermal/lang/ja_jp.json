@@ -465,7 +465,7 @@
 
   "info.thermal.device_nullifier.0": "この中に置かれたものすべてを消滅させます。",
   "info.thermal.device_nullifier.1": "自動搬入されたアイテムや流体は即座に消滅します。",
-  "info.thermal.device_nullifier.2": "手動で置かれたアイテムはボタンを押すまで消滅されません。",
+  "info.thermal.device_nullifier.2": "手動で入れられたアイテムは、ボタンを押すまで消滅されません。",
   "info.thermal.device_nullifier.3": "フィルターを用いて受け入れられる物を制限できます。",
 
   "info.thermal.device_nullifier_empty_bin": "アイテムを消滅させる",
@@ -475,8 +475,8 @@
   "info.thermal.device_potion_diffuser.2": "深呼吸しよう",
 
   "info.thermal.device_rock_gen.0": "様々な石を生成します。",
-  "info.thermal.device_rock_gen.1": "溶岩原を隣接させ、冷却する必要があります。",
-  "info.thermal.device_rock_gen.2": "下に置かれたブロックも生成に影響を及ぼす場合があります。",
+  "info.thermal.device_rock_gen.1": "隣接する溶岩原と冷却が必要です。",
+  "info.thermal.device_rock_gen.2": "下にあるブロックも生成に影響を及ぼす場合があります。",
 
   "info.thermal.device_soil_infuser.0": "近くのフィト・ソイルにレッドストーンフラックスを注入します。",
   "info.thermal.device_soil_infuser.1": "上下一ブロックずつに効果があります。",
@@ -504,8 +504,8 @@
   "info.thermal.tinker_bench_mode_charge": "モード: 充填・充電",
 
   "info.thermal.charge_bench.0": "RFをアイテムに充填します。",
-  "info.thermal.charge_bench.1": "アイテムを自動的に搬入・搬出できます。",
-  "info.thermal.charge_bench.2": "騒音を感じる。",
+  "info.thermal.charge_bench.1": "アイテムを自動的に搬入搬出できます。",
+  "info.thermal.charge_bench.2": "騒音を感じる",
 
   "item.thermal.beekeeper_fabric": "織布",
   "item.thermal.beekeeper_helmet": "養蜂家のフード",
