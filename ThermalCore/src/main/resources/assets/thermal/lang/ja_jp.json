@@ -439,8 +439,10 @@
 
   "block.thermal.device_collector": "アイテム吸引器",
   "block.thermal.device_hive_extractor": "巣箱ホッパー",
+  "block.thermal.device_nullifier": "消滅機",
   "block.thermal.device_potion_diffuser": "浸出散布機",
   "block.thermal.device_rock_gen": "火成岩生成機",
+  "block.thermal.device_soil_infuser": "フィト・ソイル注入機",
   "block.thermal.device_tree_extractor": "木精抽出機",
   "block.thermal.device_water_gen": "水生成器",
 
@@ -451,6 +453,7 @@
   "block.thermal.fluid_cell_frame": "流体セルフレーム",
 
   "block.thermal.tinker_bench": "鍛冶職人の作業台",
+  "block.thermal.charge_bench": "エネルギー充填機",
 
   "info.thermal.device_collector.0": "周辺のエリアからアイテムを拾います。",
   "info.thermal.device_collector.1": "この動作にはフィルター設定を適用できます。",
@@ -459,22 +462,29 @@
   "info.thermal.device_hive_extractor.0": "生産物を養蜂箱から慎重に抽出します。",
   "info.thermal.device_hive_extractor.1": "ミツバチにも、養蜂家にも助けとなります。",
   "info.thermal.device_hive_extractor.2": "ブンブンブン",
-  
+
+  "info.thermal.device_nullifier.0": "この中に置かれたものすべてを消滅させます。",
+  "info.thermal.device_nullifier.1": "自動搬入されたアイテムや流体は即座に消滅します。",
+  "info.thermal.device_nullifier.2": "手動で置かれたアイテムはボタンを押すまで消滅されません。",
+  "info.thermal.device_nullifier.3": "フィルターを用いて受け入れられる物を制限できます。",
+
+  "info.thermal.device_nullifier_empty_bin": "アイテムを消滅させる",
+
   "info.thermal.device_potion_diffuser.0": "ポーションを周辺に散布します。",
   "info.thermal.device_potion_diffuser.1": "試薬を使用して効果を高めることができます。",
   "info.thermal.device_potion_diffuser.2": "深呼吸しよう",
 
   "info.thermal.device_rock_gen.0": "様々な石を生成します。",
   "info.thermal.device_rock_gen.1": "溶岩原を隣接させ、冷却する必要があります。",
-  "info.thermal.device_rock_gen.2": "ロックの準備はいい？",
+  "info.thermal.device_rock_gen.2": "下に置かれたブロックも生成に影響を及ぼす場合があります。",
+
+  "info.thermal.device_soil_infuser.0": "近くのフィト・ソイルにレッドストーンフラックスを注入します。",
+  "info.thermal.device_soil_infuser.1": "上下一ブロックずつに効果があります。",
+  "info.thermal.device_soil_infuser.2": "作物には実際安全",
 
   "info.thermal.device_tree_extractor.0": "隣接する樹木から流体を抽出します。",
   "info.thermal.device_tree_extractor.1": "肥料を使うと生産効率を増加することが出来ます。",
   "info.thermal.device_tree_extractor.2": "斧を下ろそう。",
-
-  "info.thermal.tinker_bench.0": "拡充・補充・充電に使える多目的なテーブルです。",
-  "info.thermal.tinker_bench.1": "それぞれのスロットからストレージに充填出来ます。",
-  "info.thermal.tinker_bench.2": "さあいじくり倒そう",
 
   "info.thermal.device_water_gen.0": "大量の水を供給します。",
   "info.thermal.device_water_gen.1": "稼働には水源を隣接させる必要があります。",
@@ -486,8 +496,16 @@
   "info.thermal.fluid_cell.0": "流体を溜め、移送します。",
   "info.thermal.fluid_cell.1": "§e§oShift§rと§e§oCtrl§rでより精密に量を調節出来ます。",
 
+  "info.thermal.tinker_bench.0": "拡充・補充・充電に使える多目的なテーブルです。",
+  "info.thermal.tinker_bench.1": "それぞれのスロットからストレージに充填出来ます。",
+  "info.thermal.tinker_bench.2": "さあいじくり倒そう",
+
   "info.thermal.tinker_bench_mode_augment": "モード: オーグメント",
   "info.thermal.tinker_bench_mode_charge": "モード: 充填・充電",
+
+  "info.thermal.charge_bench.0": "RFをアイテムに充填します。",
+  "info.thermal.charge_bench.1": "アイテムを自動的に搬入・搬出できます。",
+  "info.thermal.charge_bench.2": "騒音を感じる。",
 
   "item.thermal.beekeeper_fabric": "織布",
   "item.thermal.beekeeper_helmet": "養蜂家のフード",
@@ -605,8 +623,6 @@
   "_comment": "Thermal Cultivation",
   "_comment": "========================================================================================================",
 
-  "block.thermal.device_soil_infuser": "フィト・ソイル注入機",
-
   "block.thermal.frost_melon": "フロストメロン",
   "block.thermal.phytosoil": "フィト・ソイル",
   "block.thermal.phytosoil_tilled": "耕されたフィト・ソイル",
@@ -630,10 +646,6 @@
   "block.thermal.strawberry_block": "イチゴクレート",
   "block.thermal.tea_block": "茶葉袋",
   "block.thermal.tomato_block": "トマトクレート",
-
-  "info.thermal.device_soil_infuser.0": "近くのフィト・ソイルにレッドストーンフラックスを注入します。",
-  "info.thermal.device_soil_infuser.1": "上下一ブロックずつに効果があります。",
-  "info.thermal.device_soil_infuser.2": "作物には実際安全",
 
   "item.thermal.barley": "大麦",
   "item.thermal.barley_seeds": "大麦の種",
@@ -801,7 +813,13 @@
   "info.thermal.machine_sawmill.1": "木材の取り扱いにとても便利です。",
   "info.thermal.machine_sawmill.2": "手に気をつけてください。",
 
+  "info.thermal.machine_smelter.0": "高温を要する、金属などの物質を融解させます。",
+  "info.thermal.machine_smelter.1": "鉱石処理や上位のブロックの作成に有用です。",
+  "info.thermal.machine_smelter.2": "食べ物は絶対に料理できません。",
+
   "item.thermal.chiller_ball_cast": "ボール金型",
+  "item.thermal.chiller_ingot_cast": "インゴット金型",
+  "item.thermal.chiller_rod_cast": "棒金型",
 
   "item.thermal.press_coin_die": "貨幣の打ち抜き型",
   "item.thermal.press_gear_die": "歯車の打ち抜き型",
@@ -835,6 +853,9 @@
   "info.thermal.quiver.mode.1": "自動浸潤有効",
   "info.thermal.quiver.use": "使用すると矢を矢筒に入れます。",
   "info.thermal.quiver.use.sneak": "スニークしながらの使用で矢を取り出します。",
+
+  "item.thermal.fluid_reservoir": "リザーバー",
+  "item.thermal.fluid_reservoir.desc": "",
 
   "item.thermal.flux_capacitor": "RF蓄電池",
   "item.thermal.flux_capacitor.desc": "RFを蓄電し、他のアイテムに充電します。",
